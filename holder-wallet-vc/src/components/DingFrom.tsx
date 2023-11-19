@@ -1,4 +1,11 @@
+import AddToHomeScreenIcon from "@mui/icons-material/AddToHomeScreen";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type DingFromProps = {
   onDingSubmit: (did: string, note: string) => void;

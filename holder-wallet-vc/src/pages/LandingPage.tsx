@@ -1,6 +1,5 @@
 import { Typography, Button, Container, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
 import image from "../assets/landing-image.png";
 
 export const LandingPage = () => {
