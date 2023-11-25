@@ -5,15 +5,11 @@ import { VCProtocolDefinition } from '../config/web5-protocol';
 import { useWeb5Store } from '../provider/Web5Provider';
 import { queryRecords } from '../utils/web5';
 
-import { useSlackNotification } from './notification/useSlackNotification';
-
 export const useReceiveDing = () => {
   const { userDid } = useWeb5Store();
 
   const [dinged, setDinged] = useState<string[]>([]);
   const [dingedBy, setDingedBy] = useState<string[]>([]);
-
-  const { sendVpLog } = useSlackNotification();
 
   const fetchDings = useCallback(async () => {
     if (!userDid) return;
@@ -63,7 +59,6 @@ export const useReceiveDing = () => {
       console.log('new dinged by');
       toast.info('new message received');
       console.log(dingedBy.length, newDingedBy.length);
-      sendVpLog(JSON.stringify(latestRecord, null, 2));
       console.log(latestRecord);
     }
   }, [dingedBy, userDid]);

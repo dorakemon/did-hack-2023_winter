@@ -1,7 +1,7 @@
 {
-  "name": "rivet-detection-frontend",
-  "productName": "Rivet Detection",
-  "description": "frontend for rivet detection",
+  "name": "verifier-app-for-iot",
+  "productName": "Verifier App",
+  "description": "Verifier App For IoT",
   "author": "StatHack",
   "private": true,
   "version": "0.0.0",
