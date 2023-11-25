@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/ns/data-integrity/v1",
+    "https://schema.org/",
+    "https://zkp-ld.org/context.jsonld"
+  ],
+  "type": "VerifiablePresentation",
+  "proof": {
+    "type": "DataIntegrityProof",
+    "created": "2023-11-22T00:36:30.564Z",
+    "challenge": "verifierChallenge",
+    "cryptosuite": "bbs-termwise-proof-2023",
+    "domain": "example.org",
+    "proofPurpose": "authentication",
+    "proofValue": "uomFhWQMlAQAAAAAAAAAAsXv1Vfd2G6EOTm_sw3Lu0g_HwNx9gHkFhjh9q-olWNpuxsEfN_nADTJbnR9MN9WDlqVt3biM_a_9pRIcC9gDpuvOLHFqKKZuTFgtJ6bBVzXpxg6Na5piE4YFN6zjZGGetRvSzWo8NpHaqGuMyPcJ4WSL2SF2s96tuJ73Ga9G1bYCykY20h_NxjLC9c81DGE1rJbn7UpQw6cGC0YtNRkT1vOqqnvBGrQPcpaIvIWxKR3y6sUTXLrUXLIl4PabGUmfAgAAAAAAAAAtChbLIPEGO_MoOgXqIf4AZs1hE7xjBd7fDmUdFBURTWA2PrLsUrDSw2KDiHVpd4290q0Gqpq-_h7NbGXz57kbo0d_DO0sSSQK__W-Tp7fRgnvhit44f0YWbUJyz9MFkXHIDaCVBRkTu40IKfy1ai7DgAAAAAAAACSYKbC8f1k-GwvpHd1WjIRpUsMH0Er94bsgZ5yzYmMEAgEZBvzCwDmqF4rNsgvY5jRgG2kIFXhk5C4ge2rZdYOe7-ETvDYlAZ1vjaN5C0G4p1p25IYSyQY6y0Ava0HJHJ7v4RO8NiUBnW-No3kLQbinWnbkhhLJBjrLQC9rQckcnu_hE7w2JQGdb42jeQtBuKdaduSGEskGOstAL2tByRye7-ETvDYlAZ1vjaN5C0G4p1p25IYSyQY6y0Ava0HJHJ7v4RO8NiUBnW-No3kLQbinWnbkhhLJBjrLQC9rQckcnu_hE7w2JQGdb42jeQtBuKdaduSGEskGOstAL2tByRye7-ETvDYlAZ1vjaN5C0G4p1p25IYSyQY6y0Ava0HJHKkBO3Ibhsk3uq6RMJ8QtuQqfgdgQWKBYq72Lg2KSs7CqQE7chuGyTe6rpEwnxC25Cp-B2BBYoFirvYuDYpKzsKpATtyG4bJN7qukTCfELbkKn4HYEFigWKu9i4NikrOwqkBO3Ibhsk3uq6RMJ8QtuQqfgdgQWKBYq72Lg2KSs7CqQE7chuGyTe6rpEwnxC25Cp-B2BBYoFirvYuDYpKzsKAREAAAAAAAAAdmVyaWZpZXJDaGFsbGVuZ2UAAGFigaRhYYsAAQIDBAUGBwgJCmFiC2FjhQABAgMEYWQF"
+  },
+  "verifiableCredential": {
+    "id": "http://example.org/credentials/person/2",
+    "type": "VerifiableCredential",
+    "proof": {
+      "type": "DataIntegrityProof",
+      "created": "2023-11-22T00:36:26.967Z",
+      "cryptosuite": "bbs-termwise-signature-2023",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "did:example:issuer2#bls12_381-g2-pub001"
+    },
+    "credentialSubject": {
+      "type": "StudentCard",
+      "http://example.org/faculty": "Computer Science",
+      "http://example.org/laboratory": "Sako Lab",
+      "birthDate": "2000-01-01",
+      "name": "Halu Kimura",
+      "university": "Waseda University"
+    },
+    "expirationDate": "2026-01-01T00:00:00Z",
+    "issuanceDate": "2023-01-01T00:00:00Z",
+    "issuer": "did:example:issuer2"
+  }
+}
