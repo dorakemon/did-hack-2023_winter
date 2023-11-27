@@ -36,7 +36,7 @@ export const CredentialDetail = () => {
 
   return (
     <Grid gap={3} direction="column" container>
-      <CredentialDetailHeader title="Credential Name" />
+      <CredentialDetailHeader title={formatVC(selectedVc).title} />
       <VerifyAlert status={verifyStatus} onClick={verifyButtonHandler} />
       <Grid gap={1} direction="column" container>
         <CredentialData keyValueList={keyValueList} />

@@ -26,7 +26,7 @@ export const JsonRawData: React.FC<JsonRawDataProps> = ({ data }) => {
             lineHeight="21px"
             sx={{ color: 'primary.soft' }}
           >
-            Credential Data
+            JSON Raw Data
           </Typography>
         </AccordionSummary>
         <AccordionDetails color="primary">

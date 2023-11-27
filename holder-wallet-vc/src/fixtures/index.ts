@@ -36,9 +36,9 @@ export const InitVCList: VCType[] = [
     credentialSubject: {
       type: 'StudentCard',
       'http://example.org/faculty': 'Computer Science',
-      'http://example.org/laboratory': 'Sako Lab',
-      birthDate: '2000-01-01',
-      name: 'Halu Kimura',
+      'http://example.org/laboratory': 'Nanashi Lab',
+      birthDate: '2002-01-01',
+      name: 'Kohei Morita',
       university: 'Waseda University',
     },
     expirationDate: '2026-01-01T00:00:00Z',
