@@ -1,16 +1,39 @@
 import { sign, verify, deriveProof, verifyProof } from '@zkp-ld/jsonld-proofs';
+import { JsonLd } from 'jsonld/jsonld-spec';
+import { useMemo } from 'react';
+
+import { CONTEXTS, customDocumentLoader } from './materials';
 
 type useVCLogicsProps = {
   keyPairs: string;
-  documentLoader: any;
   didDocs: any;
 };
 
-export const useVCLogics = ({
-  keyPairs,
-  documentLoader,
-  didDocs,
-}: useVCLogicsProps) => {
+export const useVCLogics = ({ keyPairs, didDocs }: useVCLogicsProps) => {
+  const documentLoader = useMemo(() => {
+    const contexts = new Map(CONTEXTS);
+    const contextsValidated = new Map<string, boolean>(
+      CONTEXTS.map(([k, _]) => [k, true]),
+    );
+    const enableRemote = false;
+    const defaultDocumentLoader = customDocumentLoader(
+      new Map(CONTEXTS.map(([k, v]) => [k, JSON.parse(v) as JsonLd])),
+    );
+
+    try {
+      const validatedContexts = [...contexts.entries()].filter(([k, _]) =>
+        contextsValidated.get(k),
+      );
+      const parsedValidatedContextsPairs: [string, JsonLd][] =
+        validatedContexts.map(([k, v]) => [k, JSON.parse(v) as JsonLd]);
+      const parsedValidatedContexts = new Map(parsedValidatedContextsPairs);
+
+      return customDocumentLoader(parsedValidatedContexts, enableRemote);
+    } catch (e) {
+      return defaultDocumentLoader;
+    }
+  }, []);
+
   const signVC = async (doc: any) => {
     await sign(JSON.parse(doc), JSON.parse(keyPairs), documentLoader);
   };
@@ -55,12 +78,17 @@ export const useVCLogics = ({
   };
 
   const verifyVp = async (derivedProof: any, verifierChallenge: string) => {
-    const result = await verifyProof(derivedProof, didDocs, documentLoader, {
-      challenge: verifierChallenge,
-    });
+    const result = await verifyProof(
+      derivedProof,
+      JSON.parse(didDocs),
+      documentLoader,
+      {
+        challenge: verifierChallenge,
+      },
+    );
     if (result.verified === true) return true;
     return false;
   };
 
-  return { signVC, verifyVC, generateVP, verifyVp };
+  return { documentLoader, signVC, verifyVC, generateVP, verifyVp };
 };
