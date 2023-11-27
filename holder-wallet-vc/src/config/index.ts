@@ -1,1 +1,1 @@
-export const DWN_HOSTS = ["http://localhost:3000"];
+export const DWN_HOSTS = ['http://localhost:3000'];

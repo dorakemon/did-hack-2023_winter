@@ -1,6 +1,14 @@
-import { useEffect, useState } from "react";
-import { queryRecords, userDid } from "../utils/web5";
-import { DingerProtocolDefinition } from "../config/web5-protocol";
+import { useEffect, useState } from 'react';
+
+import { DingerProtocolDefinition } from '@/config/web5-protocol';
+import { queryRecords, userDid } from '@/utils/web5';
+
+enum DateSort {
+  CreatedAscending = 'createdAscending',
+  CreatedDescending = 'createdDescending',
+  PublishedAscending = 'publishedAscending',
+  PublishedDescending = 'publishedDescending',
+}
 
 export const useReceiveDing = () => {
   const [dinged, setDinged] = useState<string[]>([]);
@@ -21,19 +29,19 @@ export const useReceiveDing = () => {
         filter: {
           protocol: DingerProtocolDefinition.protocol,
         },
-        dateSort: "createdDescending",
+        dateSort: DateSort.CreatedDescending,
       },
     });
 
     if (status.code !== 200 || !records) {
-      console.error("Failed to query dings", status);
+      console.error('Failed to query dings', status);
       return;
     }
 
     const newDinged: string[] = [];
     const newDingedBy: string[] = [];
 
-    for (let record of records) {
+    for (const record of records) {
       const { dinger, note } = await record.data.json();
       const ding = {
         id: record.id,

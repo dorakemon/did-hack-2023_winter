@@ -1,0 +1,1 @@
+export { Dinger } from './routes';

@@ -1,7 +1,9 @@
-import { toast } from "react-toastify";
-import { writeRecord } from "../utils/web5";
-import { DingerProtocolDefinition } from "../config/web5-protocol";
-import useSetupWeb5 from "./useSetupWeb5";
+import { toast } from 'react-toastify';
+
+import { DingerProtocolDefinition } from '../config/web5-protocol';
+import { writeRecord } from '../utils/web5';
+
+import useSetupWeb5 from './useSetupWeb5';
 
 const useSubmitDing = () => {
   const { did: fromDid } = useSetupWeb5();
@@ -9,7 +11,7 @@ const useSubmitDing = () => {
     console.log(toDid, note);
 
     try {
-      toast.info("writing ding to local DWN...");
+      toast.info('writing ding to local DWN...');
       const { record, status } = await writeRecord({
         data: {
           dinger: fromDid,
@@ -17,8 +19,8 @@ const useSubmitDing = () => {
         },
         message: {
           protocol: DingerProtocolDefinition.protocol,
-          protocolPath: "ding",
-          schema: "ding",
+          protocolPath: 'ding',
+          schema: 'ding',
           recipient: toDid,
         },
       });
@@ -35,7 +37,7 @@ const useSubmitDing = () => {
 
       const { status: sendStatus } = await record.send(toDid);
       if (sendStatus.code !== 202) {
-        console.log("Unable to send to target did:" + sendStatus);
+        console.log('Unable to send to target did:' + sendStatus);
         toast.error(`${sendStatus.code} - ${sendStatus.detail}`);
         return;
       }

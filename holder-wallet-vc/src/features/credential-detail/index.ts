@@ -1,0 +1,1 @@
+export { CredentialDetail } from './routes';
