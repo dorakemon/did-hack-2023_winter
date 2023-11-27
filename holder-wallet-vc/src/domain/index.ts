@@ -4,14 +4,17 @@ export type CredentialSubject = {
 };
 
 export type VCType = {
+  '@context': any[];
   id: string;
   type: string;
   proof: {
+    '@context': string;
     type: string;
     created: string;
     cryptosuite: string;
     proofPurpose: string;
     verificationMethod: string;
+    proofValue: string;
   };
   credentialSubject: CredentialSubject;
   expirationDate: string;
