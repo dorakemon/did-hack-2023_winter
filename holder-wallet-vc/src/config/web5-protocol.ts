@@ -33,12 +33,34 @@ export const VCProtocolDefinition = {
   protocol: 'https://www.w3.org/ns/credentials/v2',
   published: true,
   types: {
+    vc: {
+      schema: 'vc',
+      dataFormats: ['application/json'],
+    },
     vp: {
       schema: 'vp',
       dataFormats: ['application/json'],
     },
   },
   structure: {
+    vc: {
+      $actions: [
+        {
+          who: 'anyone',
+          can: 'write',
+        },
+        {
+          who: 'author',
+          of: 'vc',
+          can: 'read',
+        },
+        {
+          who: 'recipient',
+          of: 'vc',
+          can: 'read',
+        },
+      ],
+    },
     vp: {
       $actions: [
         {

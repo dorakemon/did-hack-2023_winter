@@ -33,6 +33,7 @@ module.exports = {
         },
         'import/resolver': {
           typescript: {},
+          node: {},
         },
       },
       env: {

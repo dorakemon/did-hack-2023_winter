@@ -1,35 +1,30 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from 'react-router-dom';
 
-import { Dinger } from "../pages/Dinger";
-import { Home } from "../pages/Home";
-import { LandingPage } from "../pages/LandingPage";
-import { Qrcode } from "../pages/Qrcode";
-import ChooseCredential from "../pages/ChooseCredential";
-import SuccessScreen from "../pages/SuccessScreen";
+import { CredentialDetail } from '@/features/credential-detail';
+import { CredentialPresent } from '@/features/credential-present';
+import { Credentials } from '@/features/credentials';
+import { Dinger } from '@/features/dinger';
+import { LandingPage } from '@/pages/LandingPage';
 
 export const router = createBrowserRouter([
   {
-    path: "/start",
+    path: '/',
     element: <LandingPage />,
   },
   {
-    path: "/dinger",
+    path: '/home',
+    element: <Credentials />,
+  },
+  {
+    path: '/detail',
+    element: <CredentialDetail />,
+  },
+  {
+    path: '/present',
+    element: <CredentialPresent />,
+  },
+  {
+    path: '/dinger',
     element: <Dinger />,
-  },
-  {
-    path: "/home",
-    element: <Home />,
-  },
-  {
-    path: "/qrcode",
-    element: <Qrcode />,
-  },
-  {
-    path: "/credential",
-    element: <ChooseCredential />,
-  },
-  {
-    path: "/success",
-    element: <SuccessScreen />,
   },
 ]);
