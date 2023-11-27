@@ -1,6 +1,6 @@
 import { Card, Grid, Typography } from '@mui/joy';
 
-import { KeyValueList } from '../../types';
+import { KeyValueList } from '@/domain';
 
 type CredentialDataProps = {
   keyValueList: KeyValueList;

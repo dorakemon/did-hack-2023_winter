@@ -2,9 +2,15 @@ import { Button, Card, Grid, Typography } from '@mui/joy';
 
 export type QrScannerScannedProps = {
   did: string;
+  onPresent: () => void;
+  onRetry: () => void;
 };
 
-export const QrScannerScanned: React.FC<QrScannerScannedProps> = ({ did }) => {
+export const QrScannerScanned: React.FC<QrScannerScannedProps> = ({
+  did,
+  onPresent,
+  onRetry,
+}) => {
   return (
     <Card variant="soft" color="success" sx={{ padding: '16px' }}>
       <Grid gap={2} direction="column" container>
@@ -20,10 +26,12 @@ export const QrScannerScanned: React.FC<QrScannerScannedProps> = ({ did }) => {
           <Typography noWrap>{did}</Typography>
         </Card>
         <Grid direction="row" justifyContent="space-between" container>
-          <Button color="success" variant="soft">
+          <Button color="success" variant="soft" onClick={onRetry}>
             Retry
           </Button>
-          <Button color="success">Present to this DID</Button>
+          <Button color="success" onClick={onPresent}>
+            Present to this DID
+          </Button>
         </Grid>
       </Grid>
     </Card>

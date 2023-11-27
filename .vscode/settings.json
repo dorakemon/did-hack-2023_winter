@@ -14,5 +14,6 @@
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
     }
-  }
+  },
+  "conventionalCommits.scopes": ["wallet"]
 }

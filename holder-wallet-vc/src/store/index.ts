@@ -1,6 +1,10 @@
 import { atom } from 'jotai';
 
-export const serchField = atom('');
-export const vcList = atom<any[]>([]);
-export const vcListFiltered = atom<any[]>([]);
-export const selectedVc = atom<any>(null);
+import { VCType } from '@/domain';
+import { InitVCList } from '@/fixtures';
+
+export const serchFieldAtom = atom('');
+// TODO: Remove this fixture
+export const vcListAtom = atom<VCType[]>(InitVCList);
+export const vcListFilteredAtom = atom<VCType[]>(InitVCList);
+export const selectedVcAtom = atom<VCType | null>(null);

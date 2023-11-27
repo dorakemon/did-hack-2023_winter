@@ -15,7 +15,9 @@ type JsonRawDataProps = {
 
 export const JsonRawData: React.FC<JsonRawDataProps> = ({ data }) => {
   return (
-    <AccordionGroup sx={{ bgcolor: ColorTheme.primarySoftBg }}>
+    <AccordionGroup
+      sx={{ bgcolor: ColorTheme.primarySoftBg, borderRadius: '8px' }}
+    >
       <Accordion>
         <AccordionSummary color="primary">
           <Typography
