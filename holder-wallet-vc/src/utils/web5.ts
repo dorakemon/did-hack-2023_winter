@@ -1,5 +1,5 @@
 import {
-  // Web5,
+  Web5,
   type RecordsWriteRequest,
   type RecordsWriteResponse,
   type RecordsQueryRequest,
@@ -10,19 +10,19 @@ import {
   type ProtocolsQueryResponse,
   type ProtocolsConfigureResponse,
   type ProtocolsConfigureRequest,
-} from "@web5/api/browser";
-import { Web5 } from "https://cdn.jsdelivr.net/npm/@web5/api@0.8.2/dist/browser.mjs";
+} from '@web5/api/browser';
+// import { Web5 } from 'https://cdn.jsdelivr.net/npm/@web5/api@0.8.2/dist/browser.mjs';
 
-import { DWN_HOSTS } from "../config";
+import { DWN_HOSTS } from '../config';
 
-export type QueryDateSort = RecordsQueryRequest["message"]["dateSort"];
+export type QueryDateSort = RecordsQueryRequest['message']['dateSort'];
 
 export let web5: Web5;
 export let userDid: string;
 
 export async function connectWeb5() {
   ({ web5, did: userDid } = await Web5.connect({
-    sync: "5s",
+    sync: '5s',
     techPreview: {
       dwnEndpoints: DWN_HOSTS,
     },
@@ -31,13 +31,13 @@ export async function connectWeb5() {
 }
 
 export async function writeRecord(
-  writeRequest: RecordsWriteRequest
+  writeRequest: RecordsWriteRequest,
 ): Promise<RecordsWriteResponse> {
   return web5.dwn.records.write(writeRequest);
 }
 
 export async function queryRecords(
-  queryRequest: RecordsQueryRequest
+  queryRequest: RecordsQueryRequest,
 ): Promise<RecordsQueryResponse> {
   return web5.dwn.records.query({ ...queryRequest });
 }
@@ -47,7 +47,7 @@ export async function readRecord({
   filter,
 }: {
   from?: string;
-  filter: RecordsReadRequest["message"]["filter"];
+  filter: RecordsReadRequest['message']['filter'];
 }): Promise<RecordsReadResponse> {
   return web5.dwn.records.read({
     ...(from && { from }),
@@ -73,7 +73,7 @@ export async function deleteRecord({
 }
 
 export async function configureProtocol(
-  definition: ProtocolsConfigureRequest["message"]["definition"]
+  definition: ProtocolsConfigureRequest['message']['definition'],
 ): Promise<ProtocolsConfigureResponse> {
   return web5.dwn.protocols.configure({
     message: {
@@ -83,7 +83,7 @@ export async function configureProtocol(
 }
 
 export async function queryProtocols(
-  protocol: string
+  protocol: string,
 ): Promise<ProtocolsQueryResponse> {
   return web5.dwn.protocols.query({
     message: {
@@ -95,7 +95,7 @@ export async function queryProtocols(
 }
 
 export async function queryForAndSetProtocol(
-  definition: ProtocolsConfigureRequest["message"]["definition"]
+  definition: ProtocolsConfigureRequest['message']['definition'],
 ) {
   const { protocols, status } = await queryProtocols(definition.protocol);
   if (protocols.length) {

@@ -10,21 +10,25 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.dinged-section, .dinged-by-section {
+.dinged-section,
+.dinged-by-section {
   flex-basis: 45%;
 }
 
-.dinged-section h2, .dinged-by-section h2 {
+.dinged-section h2,
+.dinged-by-section h2 {
   color: #333;
   margin-bottom: 10px;
 }
 
-#dinged-list, #dinged-by-list {
+#dinged-list,
+#dinged-by-list {
   list-style-type: none;
   padding: 0;
 }
 
-#dinged-list li, #dinged-by-list li {
+#dinged-list li,
+#dinged-by-list li {
   background-color: white;
   padding: 10px;
   margin-bottom: 5px;

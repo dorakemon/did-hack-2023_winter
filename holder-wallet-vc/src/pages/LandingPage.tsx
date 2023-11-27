@@ -1,44 +1,45 @@
-import { Typography, Button, Container, Box } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import image from "../assets/landing-image.png";
+import { Typography, Button, Container, Box, Grid } from '@mui/joy';
+import { useNavigate } from 'react-router-dom';
+
+import image from '../assets/landing-image.png';
 
 export const LandingPage = () => {
   const navigate = useNavigate();
 
   const navigateToHome = () => {
-    navigate("/home");
+    navigate('/home');
   };
 
   return (
     <Container maxWidth="sm">
       <Box
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100vh",
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100vh',
+          gap: '16px',
         }}
       >
-        <Typography variant="h4" gutterBottom>
-          Sako Lab Wallet
-        </Typography>
-        <Typography variant="subtitle1" gutterBottom>
-          Store and manage all your identity documents
-          <br />
-          Only for demo
-        </Typography>
+        <Grid container>
+          <Typography level="h1">Sako Lab Wallet</Typography>
+          <Typography level="body-lg" color="neutral">
+            Store and manage all your identity documents
+            <br />※ Only for demo
+          </Typography>
+        </Grid>
         <Box
           sx={{
-            width: "256px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            width: '256px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
           <img src={image} alt="landingImage" width="100%" />
         </Box>
-        <Button variant="contained" size="large" onClick={navigateToHome}>
+        <Button variant="solid" fullWidth onClick={navigateToHome}>
           Get started
         </Button>
       </Box>

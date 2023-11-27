@@ -1,5 +1,5 @@
-import React from "react";
-import "./DingReceiveViewer.css"; // スタイルシートをインポート
+import React from 'react';
+import './DingReceiveViewer.css'; // スタイルシートをインポート
 
 type DingReceiveViewerProps = {
   dinged: string[];
