@@ -1,6 +1,6 @@
 import { Card, Grid, Typography } from '@mui/joy';
 
-import { ZxingVideo } from './ZxingVideo';
+import { ZxingVideo } from '@/components/ZxingVideo';
 
 export type QrScannerDefaultProps = {
   onScan: (data: string) => void;

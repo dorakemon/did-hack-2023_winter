@@ -1,5 +1,5 @@
 import { BrowserQRCodeReader, IScannerControls } from '@zxing/browser';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 type ZxingVideoProps = {
   onScan: (data: string) => void;
@@ -7,11 +7,9 @@ type ZxingVideoProps = {
 
 export const ZxingVideo: React.FC<ZxingVideoProps> = ({ onScan }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isScanning, setIsScanning] = useState(true);
-  //const action = location.state?.action;
 
   useEffect(() => {
-    if (videoRef.current && isScanning) {
+    if (videoRef.current) {
       const codeReader = new BrowserQRCodeReader();
       let controls: IScannerControls;
       codeReader.decodeFromVideoDevice(
@@ -20,8 +18,7 @@ export const ZxingVideo: React.FC<ZxingVideoProps> = ({ onScan }) => {
         (result, error, ctrl) => {
           if (result) {
             onScan(result.getText());
-            setIsScanning(false); // Stop scanning after the first successful result
-            ctrl.stop(); // Stop the video stream
+            ctrl.stop();
             if (error) {
               console.error(error);
             }
@@ -36,10 +33,7 @@ export const ZxingVideo: React.FC<ZxingVideoProps> = ({ onScan }) => {
         }
       };
     }
-  }, [isScanning, onScan]);
-  if (!isScanning) {
-    return null;
-  }
+  }, [onScan]);
 
   return <video ref={videoRef} style={{ width: '100%' }} />;
 };

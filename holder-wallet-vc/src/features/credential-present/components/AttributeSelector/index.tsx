@@ -1,7 +1,9 @@
 import { Card, Checkbox, Grid, Typography } from '@mui/joy';
 
+import { KeyValueList } from '@/domain';
+
 type AttributeSelectorProps = {
-  keyValueList: { key: string; value: string }[];
+  keyValueList: KeyValueList;
 };
 
 export const AttributeSelector: React.FC<AttributeSelectorProps> = ({
@@ -28,11 +30,7 @@ export const AttributeSelector: React.FC<AttributeSelectorProps> = ({
               key={index}
               sx={{ width: '100%' }}
             >
-              <Checkbox
-                label={keyValue.key}
-                variant="outlined"
-                defaultChecked
-              />
+              <Checkbox label={keyValue.key} variant="outlined" />
             </Grid>
           ))}
         </Grid>
