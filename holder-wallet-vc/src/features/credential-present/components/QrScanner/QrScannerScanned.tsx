@@ -4,12 +4,14 @@ export type QrScannerScannedProps = {
   did: string;
   onPresent: () => void;
   onRetry: () => void;
+  presentButtonLoading: boolean;
 };
 
 export const QrScannerScanned: React.FC<QrScannerScannedProps> = ({
   did,
   onPresent,
   onRetry,
+  presentButtonLoading,
 }) => {
   return (
     <Card variant="soft" color="success" sx={{ padding: '16px' }}>
@@ -29,7 +31,11 @@ export const QrScannerScanned: React.FC<QrScannerScannedProps> = ({
           <Button color="success" variant="soft" onClick={onRetry}>
             Retry
           </Button>
-          <Button color="success" onClick={onPresent}>
+          <Button
+            color="success"
+            onClick={onPresent}
+            loading={presentButtonLoading}
+          >
             Present to this DID
           </Button>
         </Grid>
