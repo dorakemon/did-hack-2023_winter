@@ -15,5 +15,6 @@
       "source.fixAll.eslint": true
     }
   },
-  "conventionalCommits.scopes": ["wallet"]
+  "conventionalCommits.scopes": ["wallet"],
+  "eslint.workingDirectories": [{ "mode": "auto" }]
 }

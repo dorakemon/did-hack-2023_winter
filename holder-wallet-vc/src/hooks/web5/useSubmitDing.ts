@@ -1,11 +1,11 @@
 import { toast } from 'react-toastify';
 
-import { DingerProtocolDefinition } from '../config/web5-protocol';
-import { writeRecord } from '../utils/web5';
+import { VCProtocolDefinition } from '../../config/web5-protocol';
+import { writeRecord } from '../../utils/web5';
 
-import useSetupWeb5 from './useSetupWeb5';
+import { useSetupWeb5 } from './useSetupWeb5';
 
-const useSubmitDing = () => {
+export const useSubmitDing = () => {
   const { did: fromDid } = useSetupWeb5();
   const handleSubmit = async (toDid: string, note: string) => {
     console.log(toDid, note);
@@ -18,9 +18,9 @@ const useSubmitDing = () => {
           note,
         },
         message: {
-          protocol: DingerProtocolDefinition.protocol,
-          protocolPath: 'ding',
-          schema: 'ding',
+          protocol: VCProtocolDefinition.protocol,
+          protocolPath: 'vp',
+          schema: 'vp',
           recipient: toDid,
         },
       });
@@ -41,8 +41,6 @@ const useSubmitDing = () => {
         toast.error(`${sendStatus.code} - ${sendStatus.detail}`);
         return;
       }
-      console.log(await record.send(toDid));
-
       toast.success(`Dinged ${shortenedDid}!`);
     } catch (err: any) {
       toast.error(err.message);
@@ -52,5 +50,3 @@ const useSubmitDing = () => {
 
   return { handleSubmit };
 };
-
-export default useSubmitDing;

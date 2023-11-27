@@ -3,12 +3,12 @@ import { useAtomValue, useSetAtom } from 'jotai';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { useVCFormatter } from '@/hooks/vc';
+import { selectedVcAtom, vcListFilteredAtom } from '@/store';
+
 import { AddVCButton } from '../components/AddVCButton';
 import { CredentialList } from '../components/CredentialList';
 import { CredentialListHeader } from '../components/CredentialListHeader';
-
-import { useVCFormatter } from '@/hooks/vc';
-import { selectedVcAtom, vcListFilteredAtom } from '@/store';
 
 export const Credentials = () => {
   const navigate = useNavigate();

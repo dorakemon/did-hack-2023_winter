@@ -1,0 +1,27 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/ns/data-integrity/v1",
+    "https://schema.org/"
+  ],
+  "id": "http://example.org/credentials/person/0",
+  "type": "VerifiableCredential",
+  "issuer": "did:example:issuer0",
+  "issuanceDate": "2023-01-01T00:00:00Z",
+  "expirationDate": "2026-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:example:john",
+    "type": "Person",
+    "givenName": "John",
+    "familyName": "Smith",
+    "birthDate": "1970-01-01",
+    "homeLocation": {
+      "id": "did:example:cityA"
+    }
+  },
+  "proof": {
+    "type": "DataIntegrityProof",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:example:issuer0#bls12_381-g2-pub001"
+  }
+}

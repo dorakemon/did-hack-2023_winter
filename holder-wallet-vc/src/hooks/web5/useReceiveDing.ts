@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { DingerProtocolDefinition } from '@/config/web5-protocol';
+import { VCProtocolDefinition } from '@/config/web5-protocol';
 import { queryRecords, userDid } from '@/utils/web5';
 
 enum DateSort {
@@ -27,7 +27,7 @@ export const useReceiveDing = () => {
       from: userDid,
       message: {
         filter: {
-          protocol: DingerProtocolDefinition.protocol,
+          protocol: VCProtocolDefinition.protocol,
         },
         dateSort: DateSort.CreatedDescending,
       },
@@ -43,6 +43,7 @@ export const useReceiveDing = () => {
 
     for (const record of records) {
       const { dinger, note } = await record.data.json();
+      console.log(note);
       const ding = {
         id: record.id,
         did: dinger === userDid ? record.recipient : dinger,
@@ -54,8 +55,6 @@ export const useReceiveDing = () => {
       } else {
         newDingedBy.push(ding.note);
       }
-      //   console.log(await record.data.json());
-      //   console.log(records.dinger);
     }
     console.log(newDinged);
     console.log(newDingedBy);

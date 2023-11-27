@@ -3,12 +3,12 @@ import { useAtomValue } from 'jotai';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { useVCFormatter } from '@/hooks/vc';
+import { selectedVcAtom } from '@/store';
+
 import { AttributeSelector } from '../components/AttributeSelector';
 import { PresentCredentialHeader } from '../components/PresentCredentialHeader';
 import { QrScanner } from '../components/QrScanner';
-
-import { useVCFormatter } from '@/hooks/vc';
-import { selectedVcAtom } from '@/store';
 
 export const CredentialPresent = () => {
   const navigate = useNavigate();

@@ -1,0 +1,27 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/ns/data-integrity/v1",
+    "https://schema.org/"
+  ],
+  "id": "http://example.org/credentials/person/2",
+  "type": "VerifiableCredential",
+  "issuer": "did:example:issuer2",
+  "issuanceDate": "2023-01-01T00:00:00Z",
+  "expirationDate": "2026-01-01T00:00:00Z",
+  "credentialSubject": {
+    "type": "Person",
+    "homeLocation": {
+      "type": "Place",
+      "maximumAttendeeCapacity": {
+        "type": "xsd:integer",
+        "@value": "10000"
+      }
+    }
+  },
+  "proof": {
+    "type": "DataIntegrityProof",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:example:issuer2#bls12_381-g2-pub001"
+  }
+}

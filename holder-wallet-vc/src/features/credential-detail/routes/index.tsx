@@ -3,14 +3,14 @@ import { useAtomValue } from 'jotai';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { useVCFormatter } from '@/hooks/vc';
+import { selectedVcAtom } from '@/store';
+
 import { CredentialData } from '../components/CredentialData';
 import { CredentialDetailHeader } from '../components/CredentialDetailHeader';
 import { JsonRawData } from '../components/JsonRawData';
 import { PresentButton } from '../components/PresentButton';
 import { VerifyAlert, VerifyAlertStatus } from '../components/VerifyAlert';
-
-import { useVCFormatter } from '@/hooks/vc';
-import { selectedVcAtom } from '@/store';
 
 export const CredentialDetail = () => {
   const navigate = useNavigate();

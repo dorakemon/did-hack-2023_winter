@@ -1,15 +1,13 @@
 import { ToastContainer } from 'react-toastify';
 
+import { useReceiveDing, useSetupWeb5, useSubmitDing } from '@/hooks/web5';
+
 import DingForm from '../components/DingFrom';
 import DingReceiveViewer from '../components/DingReceiveViewer';
 import { MyDidView } from '../components/MyDidView';
 
-import { useReceiveDing } from '@/hooks/useReceiveDing';
-import useSetUpWeb5 from '@/hooks/useSetupWeb5';
-import useSubmitDing from '@/hooks/useSubmitDing';
-
 export const Dinger = () => {
-  const { web5, did, error, isLoading } = useSetUpWeb5();
+  const { web5, did, error, isLoading } = useSetupWeb5();
   const { handleSubmit } = useSubmitDing();
   const { dinged, dingedBy } = useReceiveDing();
 
