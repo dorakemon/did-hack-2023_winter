@@ -13,7 +13,7 @@ function createWindow() {
       contextIsolation: false,
       preload: path.join(__dirname, 'preload.js'),
     },
-    fullscreen: true,
+    // fullscreen: true,
     autoHideMenuBar: true,
   });
 
@@ -43,7 +43,7 @@ ipcMain.handle('runOpenDoor', () => {
   const file_path: string =
     // eslint-disable-next-line turbo/no-undeclared-env-vars
     process.env.PYTHON_OPEN_DOOR ?? '../raspi-script/open-door.py';
-
+  console.log('hello');
   spawn('python3', [file_path]);
 });
 

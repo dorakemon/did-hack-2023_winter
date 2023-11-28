@@ -6,7 +6,7 @@ export const useElectronIPC = () => {
    * ドアを開ける
    */
   const runOpenDoor = async () => {
-    await (window as any).api.runOpenDoor();
+    await window.require('electron').ipcRenderer.invoke('runOpenDoor');
   };
 
   /**

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useVCFormatter, useVCLogics } from '@/hooks/vc';
 import { exampleDIDDocs, exampleKeyPairs } from '@/hooks/vc/materials';
+import { useSubmitDing } from '@/hooks/web5';
 import { selectedVcAtom } from '@/store';
 import { formatQr } from '@/utils/formatQr';
 
@@ -28,6 +29,7 @@ export const CredentialPresent = () => {
     didDocs: exampleDIDDocs,
     keyPairs: exampleKeyPairs,
   });
+  const { handleSubmit } = useSubmitDing();
 
   const selectAttributesHander = useCallback(
     (attrs: string[]) => {
@@ -72,18 +74,23 @@ export const CredentialPresent = () => {
       const result = await verifyVp(vp, challenge);
       console.log(vp);
       console.log(result);
+      handleSubmit(toDid, JSON.stringify(vp));
+      navigate('/home');
     } catch (e) {
       console.error(e);
     } finally {
       setPresentButtonLoading(false);
     }
   }, [
-    challenge,
-    generateVP,
-    removeAttributesFromVc,
     revealAttributes,
+    generateVP,
     selectedVc,
+    removeAttributesFromVc,
+    challenge,
     verifyVp,
+    handleSubmit,
+    toDid,
+    navigate,
   ]);
 
   const retryButtonHandler = useCallback(() => {
