@@ -11,6 +11,7 @@ import {
   type ProtocolsConfigureResponse,
   type ProtocolsConfigureRequest,
 } from '@web5/api';
+import { DWN_HOSTS } from 'src/config';
 
 export type QueryDateSort = RecordsQueryRequest['message']['dateSort'];
 
@@ -22,9 +23,9 @@ export class Web5Store {
 export const connectWeb5 = async () => {
   const result = await Web5.connect({
     sync: '5s',
-    // techPreview: {
-    //   dwnEndpoints: DWN_HOSTS,
-    // },
+    techPreview: {
+      dwnEndpoints: DWN_HOSTS,
+    },
   });
   Web5Store.web5 = result.web5;
   Web5Store.userDid = result.did;
