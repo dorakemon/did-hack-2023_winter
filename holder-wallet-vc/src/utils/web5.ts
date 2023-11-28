@@ -13,8 +13,6 @@ import {
 } from '@web5/api/browser';
 // import { Web5 } from 'https://cdn.jsdelivr.net/npm/@web5/api@0.8.2/dist/browser.mjs';
 
-import { DWN_HOSTS } from '../config';
-
 export type QueryDateSort = RecordsQueryRequest['message']['dateSort'];
 
 export let web5: Web5;
@@ -23,9 +21,9 @@ export let userDid: string;
 export async function connectWeb5() {
   ({ web5, did: userDid } = await Web5.connect({
     sync: '5s',
-    techPreview: {
-      dwnEndpoints: DWN_HOSTS,
-    },
+    // techPreview: {
+    //   dwnEndpoints: DWN_HOSTS,
+    // },
   }));
   return { web5, userDid };
 }
