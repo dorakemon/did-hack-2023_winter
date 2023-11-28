@@ -3,7 +3,8 @@ import { useAtomValue } from 'jotai';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useVCFormatter } from '@/hooks/vc';
+import { useVCFormatter, useVCLogics } from '@/hooks/vc';
+import { exampleDIDDocs, exampleKeyPairs } from '@/hooks/vc/materials';
 import { selectedVcAtom } from '@/store';
 
 import { CredentialData } from '../components/CredentialData';
@@ -17,6 +18,10 @@ export const CredentialDetail = () => {
 
   const selectedVc = useAtomValue(selectedVcAtom);
   const { formatVC } = useVCFormatter();
+  const { verifyVC } = useVCLogics({
+    didDocs: exampleDIDDocs,
+    keyPairs: exampleKeyPairs,
+  });
 
   const [verifyStatus, setVerifyStatus] = useState<VerifyAlertStatus>('yet');
 
@@ -30,13 +35,21 @@ export const CredentialDetail = () => {
     return vc.keyValueList;
   })();
 
-  const verifyButtonHandler = () => {
-    setVerifyStatus('invalid');
+  const verifyButtonHandler = async () => {
+    const result = await verifyVC(selectedVc);
+    if (!result) {
+      setVerifyStatus('invalid');
+      return;
+    }
+    setVerifyStatus('valid');
   };
 
   return (
     <Grid gap={3} direction="column" container>
-      <CredentialDetailHeader title={formatVC(selectedVc).title} />
+      <CredentialDetailHeader
+        title={formatVC(selectedVc).title}
+        verifyStatus={verifyStatus === 'yet' ? undefined : verifyStatus}
+      />
       <VerifyAlert status={verifyStatus} onClick={verifyButtonHandler} />
       <Grid gap={1} direction="column" container>
         <CredentialData keyValueList={keyValueList} />

@@ -39,7 +39,7 @@ export const useVCLogics = ({ keyPairs, didDocs }: useVCLogicsProps) => {
   };
 
   const verifyVC = async (cred: any) => {
-    const result = await verify(cred, didDocs, documentLoader);
+    const result = await verify(cred, JSON.parse(didDocs), documentLoader);
     if (result.verified) return true;
     return false;
   };
