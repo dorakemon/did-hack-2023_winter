@@ -1,4 +1,4 @@
-import { Typography, Button, Container, Box, Grid } from '@mui/joy';
+import { Typography, Button, Container, Box, Grid, Link } from '@mui/joy';
 import { useNavigate } from 'react-router-dom';
 
 import image from '../assets/landing-image.png';
@@ -18,16 +18,20 @@ export const LandingPage = () => {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          height: '100vh',
+          height: '95vh',
           gap: '16px',
         }}
       >
-        <Grid container>
+        <Grid container direction="column">
           <Typography level="h1">Sako Lab Wallet</Typography>
           <Typography level="body-lg" color="neutral">
-            Store and manage all your identity documents
-            <br />※ Only for demo
+            Manage all your verifiable credentials stored on your DWN
+            <br />
           </Typography>
+          <Typography level="body-md" color="danger">
+            ※ Only for demo
+          </Typography>
+          <Link href="/info">Details for demo</Link>
         </Grid>
         <Box
           sx={{

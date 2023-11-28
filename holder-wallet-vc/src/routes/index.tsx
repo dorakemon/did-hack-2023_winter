@@ -4,6 +4,7 @@ import { CredentialDetail } from '@/features/credential-detail';
 import { CredentialPresent } from '@/features/credential-present';
 import { Credentials } from '@/features/credentials';
 import { Dinger } from '@/features/dinger';
+import { InfoForDemo } from '@/pages/InfoForDemo';
 import { LandingPage } from '@/pages/LandingPage';
 
 export const router = createBrowserRouter([
@@ -26,5 +27,9 @@ export const router = createBrowserRouter([
   {
     path: '/dinger',
     element: <Dinger />,
+  },
+  {
+    path: '/info',
+    element: <InfoForDemo />,
   },
 ]);
