@@ -16,7 +16,7 @@ class SlackDriver:
         )
         return r.json()["message"]
 
-    def send_image(self, file_path, thread_ts):
+    def send_file(self, file_path, thread_ts):
         files = {'file': open(file_path, 'rb')}
         params = {
             'channels': SLACK_CHANNEL, 
@@ -36,4 +36,4 @@ class SlackDriver:
 if __name__ == '__main__':
     slack = SlackDriver()
     res = slack.send_message('The door is opened by someone :female_supervillain:')
-    slack.send_image("SampleVP.json", res["ts"])
+    slack.send_file("/tmp/vp.json", res["ts"])

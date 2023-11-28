@@ -15,7 +15,7 @@
     "vite:dev": "vite",
     "vite:build": "tsc && vite build",
     "vite:preview": "vite preview",
-    "electron:build": "esbuild ./electron/main.ts --format=cjs --outfile=./dist/main.ts",
+    "electron:build": "esbuild ./electron/main.ts --format=cjs --outfile=./dist/main.ts && esbuild ./electron/preload.ts --outfile=./dist/preload.js",
     "electron:dev": "yarn run electron:build && electron .",
     "package": "electron-forge package",
     "make": "electron-forge make"

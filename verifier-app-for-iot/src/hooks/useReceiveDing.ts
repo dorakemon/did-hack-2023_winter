@@ -5,11 +5,15 @@ import { VCProtocolDefinition } from '../config/web5-protocol';
 import { useWeb5Store } from '../provider/Web5Provider';
 import { queryRecords } from '../utils/web5';
 
+import { useElectronIPC } from './ipc/useElectronIpc';
+
 export const useReceiveDing = () => {
   const { userDid } = useWeb5Store();
 
   const [dinged, setDinged] = useState<string[]>([]);
   const [dingedBy, setDingedBy] = useState<string[]>([]);
+
+  const { runOpenDoor } = useElectronIPC();
 
   const fetchDings = useCallback(async () => {
     if (!userDid) return;
@@ -60,8 +64,9 @@ export const useReceiveDing = () => {
       toast.info('new message received');
       console.log(dingedBy.length, newDingedBy.length);
       console.log(latestRecord);
+      runOpenDoor();
     }
-  }, [dingedBy, userDid]);
+  }, [dingedBy, userDid, runOpenDoor]);
 
   useEffect(() => {
     const interval = setInterval(() => {
