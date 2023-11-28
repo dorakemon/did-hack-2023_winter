@@ -11,7 +11,8 @@ import {
   type ProtocolsConfigureResponse,
   type ProtocolsConfigureRequest,
 } from '@web5/api';
-import { DWN_HOSTS } from 'src/config';
+
+import { DWN_HOSTS } from '../config';
 
 export type QueryDateSort = RecordsQueryRequest['message']['dateSort'];
 
