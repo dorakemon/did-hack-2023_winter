@@ -15,7 +15,15 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "."
+
+    /* Alias */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    /* Types */
+    "typeRoots": ["types", "node_modules/@types"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
