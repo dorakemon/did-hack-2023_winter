@@ -5,7 +5,7 @@ import { VCProtocolDefinition } from '../config/web5-protocol';
 import { useWeb5Store } from '../provider/Web5Provider';
 import { queryRecords } from '../utils/web5';
 
-import { useElectronIPC } from './ipc/useElectronIpc';
+import { useElectronIPC } from './ipc/useElectronIPC';
 
 export const useReceiveDing = () => {
   const { userDid } = useWeb5Store();
