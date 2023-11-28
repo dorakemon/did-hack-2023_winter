@@ -52,7 +52,7 @@ export const CredentialPresent = () => {
     const revealDoc = JSON.parse(JSON.stringify(selectedVc));
     const keys = Object.keys(revealDoc.credentialSubject);
     keys.forEach((key) => {
-      if (!['type', revealAttributes].includes(key)) {
+      if (!['type', ...revealAttributes].includes(key)) {
         delete revealDoc.credentialSubject[key];
       }
     });
