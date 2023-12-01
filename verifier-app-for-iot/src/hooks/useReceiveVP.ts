@@ -1,23 +1,32 @@
 import { useCallback, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import useSound from 'use-sound';
 
+import boopSfx from '../../sounds/boop.mp3';
+import correctSfx from '../../sounds/correct.mp3';
 import { VCProtocolDefinition } from '../config/web5-protocol';
 import { useWeb5Store } from '../provider/Web5Provider';
 import { queryRecords } from '../utils/web5';
 
 import { useElectronIPC } from './ipc/useElectronIPC';
+import { useVerifyVPForDoor } from './vc/verifyVPForDoor';
 
-export const useReceiveDing = () => {
+// import { useVCLogics } from '@/hooks/vc/useVCLogics';
+
+export const useReceiveVP = () => {
   const { userDid } = useWeb5Store();
 
   const [dinged, setDinged] = useState<string[]>([]);
   const [dingedBy, setDingedBy] = useState<string[]>([]);
 
   const { runOpenDoor } = useElectronIPC();
+  const { verifyVPForDoor } = useVerifyVPForDoor();
+
+  const [boopSound] = useSound(boopSfx);
+  const [correctSound] = useSound(correctSfx);
 
   const fetchDings = useCallback(async () => {
     if (!userDid) return;
-    console.log(userDid);
     const { records, status } = await queryRecords({
       from: userDid,
       message: {
@@ -37,13 +46,8 @@ export const useReceiveDing = () => {
     const newDinged: string[] = [];
     const newDingedBy: string[] = [];
 
-    let latestRecord = null;
-
     for (const record of records) {
       const { dinger, note } = await record.data.json();
-      if (!latestRecord) {
-        latestRecord = note;
-      }
       const ding = {
         id: record.id,
         did: dinger === userDid ? record.recipient : dinger,
@@ -58,15 +62,35 @@ export const useReceiveDing = () => {
     }
     setDinged(newDinged);
     setDingedBy(newDingedBy);
-    console.log({ dingedBy: dingedBy.length, newDingedBy: newDingedBy.length });
+    // console.log({ dingedBy: dingedBy.length, newDingedBy: newDingedBy.length });
+    // New VP Has Come
     if (dingedBy.length !== newDingedBy.length && dingedBy.length > 0) {
-      console.log('new dinged by');
-      toast.info('new message received');
+      toast.info('new VP is received');
       console.log(dingedBy.length, newDingedBy.length);
-      console.log(latestRecord);
+      const latestVP = JSON.parse(newDingedBy[0]);
+      console.log(latestVP);
+      const { keyValueList, error } = verifyVPForDoor(latestVP);
+      if (error) {
+        toast.error(error);
+        boopSound();
+        return;
+      }
+      correctSound();
+      const formattedKeyValueList = keyValueList.map(
+        (item) => `${item.key}: ${item.value} \n`,
+      );
+      toast.info(`VP is Valid \n${formattedKeyValueList}`);
+      console.log(keyValueList);
       runOpenDoor();
     }
-  }, [dingedBy, userDid, runOpenDoor]);
+  }, [
+    userDid,
+    dingedBy.length,
+    verifyVPForDoor,
+    correctSound,
+    runOpenDoor,
+    boopSound,
+  ]);
 
   useEffect(() => {
     const interval = setInterval(() => {

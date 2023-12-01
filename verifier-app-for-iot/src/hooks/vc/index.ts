@@ -1,2 +1,2 @@
 export { useVCLogics } from './useVCLogics';
-export { useVCFormatter } from './useVCFormatter';
+export { useVerifyVPForDoor } from './verifyVPForDoor';

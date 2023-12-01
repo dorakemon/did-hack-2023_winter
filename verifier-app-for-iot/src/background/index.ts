@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { CHALLENGE_EXPIRE_TIMEOUT } from '../config';
-import { useReceiveDing } from '../hooks/useReceiveDing';
+import { useReceiveVP } from '../hooks/useReceiveVP';
 import { useWeb5Store } from '../provider/Web5Provider';
 import { generateChallenge } from '../utils/challenge-generator';
 
@@ -18,5 +18,5 @@ export const useBackgroundProcess = () => {
     };
   }, [challenge, setChallenge]);
 
-  const { dinged, dingedBy } = useReceiveDing();
+  const { dinged, dingedBy } = useReceiveVP();
 };

@@ -56,8 +56,6 @@ export const useReceiveDing = () => {
         newDingedBy.push(ding.note);
       }
     }
-    console.log(newDinged);
-    console.log(newDingedBy);
 
     setDinged(newDinged);
     setDingedBy(newDingedBy);
