@@ -6,7 +6,7 @@ import { Credentials } from '@/features/credentials';
 import { Dinger } from '@/features/dinger';
 import { InfoForDemo } from '@/pages/InfoForDemo';
 import { LandingPage } from '@/pages/LandingPage';
-
+import { OpenerDemo } from '@/pages/OpenerDemo';
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -31,5 +31,9 @@ export const router = createBrowserRouter([
   {
     path: '/info',
     element: <InfoForDemo />,
+  },
+  {
+    path: '/opener',
+    element: <OpenerDemo />,
   },
 ]);

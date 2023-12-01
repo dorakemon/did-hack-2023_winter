@@ -1199,7 +1199,7 @@
     "@web5/crypto" "0.2.2"
     "@web5/dids" "0.2.2"
 
-"@zkp-ld/jsonld-proofs@^0.9.0":
+"@zkp-ld/jsonld-proofs@0.9.0":
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/@zkp-ld/jsonld-proofs/-/jsonld-proofs-0.9.0.tgz#4c1297f7b68c37190d08f00b2347cf8436967677"
   integrity sha512-EUrqxUqBJ8xFAeZZBYcfOKG2B3Aq/luTUHhWCaNgYDBOqgl803nCzi2Eav2Hu2uYzYl4O1OOr9Sk7TYr/TteFQ==
