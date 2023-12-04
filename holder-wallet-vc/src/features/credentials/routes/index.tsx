@@ -36,7 +36,11 @@ export const Credentials = () => {
           onCardClick={cardClickHandler}
         />
       </Grid>
-      <AddVCButton />
+      <AddVCButton
+        onClick={() => {
+          alert('Not Implemented Yet');
+        }}
+      />
     </>
   );
 };
