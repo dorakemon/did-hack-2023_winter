@@ -11,8 +11,13 @@ All members are from Sako laboratory of Waseda University in Tokyo
 ## Introduction
 An Anonymous Door Unlocking System is a privacy-preserving, secure entry solution for lab environments. Utilizing verifiable credentials with BBS+ signature scheme and Decentralized Web Nodes (DWN) and Zero Knowledge Proof (ZKP) stuffs. 
 This system allows lab members to unlock the lab’s door anonymously, without disclosing their identity, using an unlinkable selective disclosure feature, except for the fact that they are authorized lab members.
-These hidden attributes can be revealed by an opener, powerful authority, when something bad is happening, using newly  created ZKP with BBS+ signature (Anonymity Revocation).
-The holder of VC can select 
+
+We introduced **NEW CONCEPT** that these hidden attributes can be revealed by an opener, powerful authority, when something bad is happening, using newly created ZKP with BBS+ signature (Anonymity Revocation).
+
+(In simple terms, we are using elliptic curve elgamal encryption and verifiable encryption)
+
+The holder and verifier can select which authority they choose.
+
 This technology extends beyond door access apps and can be applied to all general anonymous systems.
 
 ## Table of Contents
@@ -33,6 +38,7 @@ In our verifiable credential’s ecosystem, we expand upon the standard triad of
 Anonymous authentication is defined as the authentication process where the Holder's user identifier is kept confidential from the Verifier. Also, 'Personal Identification' refers to the situation where the Opener obtains and identifies the user identifier of the Holder who performed anonymous authentication.
 
 We will explain an overview of Personal Identification. When issuing a VC to a Holder, the Issuer assigns a user identifier (uid) and remembers the information including the uid. The Opener generates a key pair consisting of a private key (Osk) and a public key (Opk).
+This uid is bounded with bbs+ signature.
 
 During proof verification, the Holder and Verifier designate the Opener, and the Holder encrypts the uid with the Opener's public key Opk. In addition, it is proven that the uid is encrypted with Opk, and that this uid matches the uid included in the VC. With the above proof, when the Opener performs Personal Identification, it is confirmed by the Verifier that the Opener, who owns the Osk, can decrypt Enc(Opk, uid), and that the uid obtained by decryption is linked to the Holder's information held by the Issuer.
 
@@ -80,6 +86,11 @@ We have expanded the existing BBS+ Signature Proof of Knowledge (ZKP) by adding 
 
 - The encrypted uid is truly related to VC
 - The public key used for encryption is truly Opener’s who the verifier consents.
+
+The two bottom lines are verifiable encryption of uid, based on elmagal encryption.
+
+<img width="507" alt="image" src="https://github.com/dorakemon/did-hack-2023_winter/assets/51844896/4e195854-fc56-46a0-b408-573f8d8a8ffa">
+
 
 ## Tech Applicability
 This technology can also be applied to other applications such as Bike Share and Taxi Dispatch to attach an anonymous authorization function. This section explains how these applications work.
