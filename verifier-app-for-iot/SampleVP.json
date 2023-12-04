@@ -8,30 +8,26 @@
   "type": "VerifiablePresentation",
   "proof": {
     "type": "DataIntegrityProof",
-    "created": "2023-11-22T00:36:30.564Z",
-    "challenge": "verifierChallenge",
+    "created": "2023-12-04T00:39:33.675Z",
+    "https://sako-lab.jp/schemas#encrypted_uid": "ughyZLcVWahH8wbl0BgJWiTt4BeK4Y6b2CYLkAOFkz5HF9IG9nPT6m6EbkAEp5PZIjVm8FdwFBgYQDQUbGJGxFBplHXerAWKeEV4i7SdAHmpGcp1Owlm280pzYvz1EkBJ",
+    "challenge": "9UZOu7PD7f9uY6F_lcdQTM38sDn6Y_",
     "cryptosuite": "bbs-termwise-proof-2023",
-    "domain": "example.org",
     "proofPurpose": "authentication",
-    "proofValue": "uomFhWQMlAQAAAAAAAAAAsXv1Vfd2G6EOTm_sw3Lu0g_HwNx9gHkFhjh9q-olWNpuxsEfN_nADTJbnR9MN9WDlqVt3biM_a_9pRIcC9gDpuvOLHFqKKZuTFgtJ6bBVzXpxg6Na5piE4YFN6zjZGGetRvSzWo8NpHaqGuMyPcJ4WSL2SF2s96tuJ73Ga9G1bYCykY20h_NxjLC9c81DGE1rJbn7UpQw6cGC0YtNRkT1vOqqnvBGrQPcpaIvIWxKR3y6sUTXLrUXLIl4PabGUmfAgAAAAAAAAAtChbLIPEGO_MoOgXqIf4AZs1hE7xjBd7fDmUdFBURTWA2PrLsUrDSw2KDiHVpd4290q0Gqpq-_h7NbGXz57kbo0d_DO0sSSQK__W-Tp7fRgnvhit44f0YWbUJyz9MFkXHIDaCVBRkTu40IKfy1ai7DgAAAAAAAACSYKbC8f1k-GwvpHd1WjIRpUsMH0Er94bsgZ5yzYmMEAgEZBvzCwDmqF4rNsgvY5jRgG2kIFXhk5C4ge2rZdYOe7-ETvDYlAZ1vjaN5C0G4p1p25IYSyQY6y0Ava0HJHJ7v4RO8NiUBnW-No3kLQbinWnbkhhLJBjrLQC9rQckcnu_hE7w2JQGdb42jeQtBuKdaduSGEskGOstAL2tByRye7-ETvDYlAZ1vjaN5C0G4p1p25IYSyQY6y0Ava0HJHJ7v4RO8NiUBnW-No3kLQbinWnbkhhLJBjrLQC9rQckcnu_hE7w2JQGdb42jeQtBuKdaduSGEskGOstAL2tByRye7-ETvDYlAZ1vjaN5C0G4p1p25IYSyQY6y0Ava0HJHKkBO3Ibhsk3uq6RMJ8QtuQqfgdgQWKBYq72Lg2KSs7CqQE7chuGyTe6rpEwnxC25Cp-B2BBYoFirvYuDYpKzsKpATtyG4bJN7qukTCfELbkKn4HYEFigWKu9i4NikrOwqkBO3Ibhsk3uq6RMJ8QtuQqfgdgQWKBYq72Lg2KSs7CqQE7chuGyTe6rpEwnxC25Cp-B2BBYoFirvYuDYpKzsKAREAAAAAAAAAdmVyaWZpZXJDaGFsbGVuZ2UAAGFigaRhYYsAAQIDBAUGBwgJCmFiC2FjhQABAgMEYWQF"
+    "proofValue": "uomFhWQUkAwAAAAAAAAAAr7hS_UQtBO-1YPi_skMFSbX2cT386Hagl9BuvDkFJgLjadlPMRUiHBR_FsB1sYE4sRAeEfMTv690bWnl1rpUpzyLzmIcrJm_fFHsAIom8Skaw22CZM_y_HSN-9EiP1hshZ_syM60q6Gj-pVGGrIYZKrQZVcMvrHl6AJUVgvUaj_AtwTcc443k2gwPCh8DTCcqv2hLTf_sI4X9m51RGxHkOwueqj-7k911F0sorPWTQJyF24XknQU-0WgwvuriCpTAgAAAAAAAADzpIA121qrYg-5v2gv7w11TWJZXKdHhUp3AQ7Xzz13KbzDm69qB-A_BwxdWkQOYQGev-YQ3YFEHzDKZX5nutA2qYeoCZcYrwEvk8MBIp3yUNtE2zXO19IZJLBnFSMSholbiuBQwmWRCKiJAWLQ_8bKFwAAAAAAAAAkVui5-5qxVPcr_O_ydcBwS0lM_A8cJW_Tr5PHOW-sK-rDXIky4QIwJhWLCXs7SNW6e8lmMJdCIUpGJIz_65tIUbFqwt14Ol7eqEKcdGTmntjj-EDrzFLv-AuooXPEa0yxjilAjl8m1Xa08xOZutvn8XkHMMPOIOhrHSKDmV1-LmADt_rHmgF6lKGvwFxKU9WzX7oPFwrehBlFE2Yxb14pGnOuyYWlThcotA7fahPbgXqeAUjntT0cztZujhoMckzVYxTkzaYoAe_rOqzulagXZXwMu3sFFVIWqsjYUwDEAbGOKUCOXybVdrTzE5m62-fxeQcww84g6GsdIoOZXX4uOtzMDbKmOYjqsk_mrmky5elvZuPgCugkVxMyR0tRwT_MwFqmSp617mPFA_Ybb7I_qMhkXTvqr0my2GzJ-UOYEnLj4ovfi6Wb7-iBwJB7iGFVD1D7eHKHMYeAjliN3lZuJBUyQ47FLMDxxlKUG6Z5-TMAxLhTc9C5TzPfuvYma2dvngc7kapHWmyuT31cHsI5Ez_YtCPtSqmzfkUzKAByavOr08g2J5lalBwhHJ510vJ_glgXrtZvQnZS83Vv7DNyPrlK6ChqAEB5TMdlq14JUieDOVd8Y2vT0UlpKIFNVhe88xPaEmFfTr9dERZnQXKOJpf4QBbNK9Q8cj3zzqFMM0sfMFCi5mYD2Uqusbd3v5bIumMXrb-EF7Kb0ubC7uETsY4pQI5fJtV2tPMTmbrb5_F5BzDDziDoax0ig5ldfi6xHDwOKhOTTzRym0BfL-TfOchOmaI-WWD66fL6Ju1BBLEcPA4qE5NPNHKbQF8v5N85yE6Zoj5ZYPrp8vom7UEEsRw8DioTk080cptAXy_k3znITpmiPllg-uny-ibtQQSxHDwOKhOTTzRym0BfL-TfOchOmaI-WWD66fL6Ju1BBLEcPA4qE5NPNHKbQF8v5N85yE6Zoj5ZYPrp8vom7UEEA4UFb8VFADUJAh7-XMXuDhnEAiWoZov24QkgfP5hMk6U063rT0bYoadkKjUqfZlsFAEAAAAAAAAAH-FDdTY56HombTjogNvWXXtwaS8V4mLCCunHuoLKskkDuP5zgw2SY9DZbx9s-xFAixD3pNUPJ-ZpPYkn7Q4QpBw-do2dEV4n-nrHl0o4B6y-AgAAAAAAAAA8f5B1IV-86Lxeq30nUsI22ZcZwaw0eVSzDWy5VjBrIKgIMt8Z3S9fLtcHIKaZATvJs1Q08F6RvKlRlRnBmtgEAR4AAAAAAAAAOVVaT3U3UEQ3Zjl1WTZGX2xjZFFUTTM4c0RuNllfAABhYoGkYWGHAAECAwQGCmFiC2FjhQABAgMEYWQF"
   },
   "verifiableCredential": {
     "id": "http://example.org/credentials/person/2",
     "type": "VerifiableCredential",
     "proof": {
       "type": "DataIntegrityProof",
-      "created": "2023-11-22T00:36:26.967Z",
-      "cryptosuite": "bbs-termwise-signature-2023",
+      "created": "2023-12-01T03:43:41.042Z",
+      "cryptosuite": "bbs-termwise-bound-signature-2023",
       "proofPurpose": "assertionMethod",
       "verificationMethod": "did:example:issuer2#bls12_381-g2-pub001"
     },
     "credentialSubject": {
       "type": "StudentCard",
-      "http://example.org/faculty": "Computer Science",
-      "http://example.org/laboratory": "Sako Lab",
-      "birthDate": "2000-01-01",
-      "name": "Halu Kimura",
-      "university": "Waseda University"
+      "http://example.org/laboratory": "Sako Lab"
     },
     "expirationDate": "2026-01-01T00:00:00Z",
     "issuanceDate": "2023-01-01T00:00:00Z",

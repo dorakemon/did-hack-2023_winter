@@ -21,7 +21,7 @@
     "@mui/material": "5.14.18",
     "@textea/json-viewer": "^3.2.3",
     "@web5/api": "^0.8.2",
-    "@zkp-ld/jsonld-proofs": "0.9.0",
+    "@dorakemon/jsonld-proofs": "0.10.1",
     "@zxing/browser": "^0.1.4",
     "@zxing/library": "^0.20.0",
     "buffer": "^6.0.3",

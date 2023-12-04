@@ -5,6 +5,22 @@ import { InitVCList } from '@/fixtures';
 
 export const serchFieldAtom = atom('');
 // TODO: Remove this fixture
-export const vcListAtom = atom<VCType[]>(InitVCList);
-export const vcListFilteredAtom = atom<VCType[]>(InitVCList);
-export const selectedVcAtom = atom<VCType | null>(null);
+export const vcListAtom = atom<
+  {
+    uid: string;
+    encrypted_uid: string;
+    vc: VCType;
+  }[]
+>(InitVCList);
+export const vcListFilteredAtom = atom<
+  {
+    uid: string;
+    encrypted_uid: string;
+    vc: VCType;
+  }[]
+>(InitVCList);
+export const selectedVcAtom = atom<{
+  uid: string;
+  encrypted_uid: string;
+  vc: VCType;
+} | null>(null);

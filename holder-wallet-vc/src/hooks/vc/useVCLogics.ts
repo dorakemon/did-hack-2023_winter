@@ -1,4 +1,9 @@
-import { sign, verify, deriveProof, verifyProof } from '@zkp-ld/jsonld-proofs';
+import {
+  sign,
+  deriveProof,
+  verifyProof,
+  blindVerify,
+} from '@dorakemon/jsonld-proofs';
 import { JsonLd } from 'jsonld/jsonld-spec';
 import { useMemo } from 'react';
 
@@ -35,11 +40,22 @@ export const useVCLogics = ({ keyPairs, didDocs }: useVCLogicsProps) => {
   }, []);
 
   const signVC = async (doc: any) => {
-    await sign(JSON.parse(doc), JSON.parse(keyPairs), documentLoader);
+    const vc = await sign(
+      doc,
+      JSON.parse(keyPairs),
+      documentLoader,
+      new Uint8Array(Buffer.from('a1c82605-bb01-4830-8293-13f415c35302')),
+    );
+    return vc;
   };
 
-  const verifyVC = async (cred: any) => {
-    const result = await verify(cred, JSON.parse(didDocs), documentLoader);
+  const verifyVC = async (cred: any, secret: string) => {
+    const result = await blindVerify(
+      new Uint8Array(Buffer.from(secret)),
+      cred,
+      JSON.parse(didDocs),
+      documentLoader,
+    );
     if (result.verified) return true;
     return false;
   };
@@ -48,6 +64,8 @@ export const useVCLogics = ({ keyPairs, didDocs }: useVCLogicsProps) => {
     cred: any,
     revealDoc: any,
     verifierChallenge: string,
+    secret: string,
+    openerPubKey: string,
   ) => {
     const vcPairs = {
       original: cred,
@@ -67,7 +85,8 @@ export const useVCLogics = ({ keyPairs, didDocs }: useVCLogicsProps) => {
       {
         challenge: verifierChallenge,
         // domain: verifierDomain,
-        // secret,
+        secret: new Uint8Array(Buffer.from(secret)),
+        openerPubKey,
         // blindSignRequest,
         // withPpid: holderWithPpid,
         // predicates: checked_predicates,
