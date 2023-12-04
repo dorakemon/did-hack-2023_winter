@@ -40,8 +40,8 @@ Next, let's assume that after the proof verification is completed, the Verifier 
 
 ![image](https://github.com/dorakemon/did-hack-2023_winter/assets/51844896/00d622e4-8894-492e-9bec-4f38834a063b)
 
+Figure 1 Enhanced VC Ecosystem Model
 
-         Figure 1 Enhanced VC Ecosystem Model
 ## What do we demonstrate?
 
 In our demonstration, we showcased our innovative VC ecosystem designed for secure lab access, incorporating Decentralized Web Nodes (DWN). The demonstration was structured to simplify and effectively communicate our concept:
@@ -77,40 +77,70 @@ Figure 2 Comprehensive Overview of Our Secure Lab Ecosystem
 
 
 We have expanded the existing BBS+ Signature Proof of Knowledge (ZKP) by adding new elements to the proof. The enhancements to the new ZKP to verify that encrypted uid, `Enc(Opk, uid)` is encrypted correctly and verifier can verify below:
-The encrypted uid is truly related to VC
-The public key used for encryption is truly Opener’s who the verifier consents.
-Tech Applicability
+
+- The encrypted uid is truly related to VC
+- The public key used for encryption is truly Opener’s who the verifier consents.
+
+## Tech Applicability
 This technology can also be applied to other applications such as Bike Share and Taxi Dispatch to attach an anonymous authorization function. This section explains how these applications work.
 
 ### Bike Share
 In the context of Bike Share, the system can revolutionize how users access and use shared bicycles in urban environments.
-Secure Access via Wallet App: Users can unlock and access cycles through the wallet app, selecting relevant credentials to authenticate themselves without revealing their full identity. This process ensures only authorized users can access the cycles.
-Selective Credential Disclosure: The app's use of BBS+ signatures enables users to prove they meet the usage criteria (like age or membership status) without sharing any additional personal information.
-Decentralized Verification with DWN: The use of DWN ensures that all user verifications are securely managed and logged without centralizing data, enhancing privacy and reducing the risk of data breaches.
-Enhanced User Privacy: Users can confidently use sharing cycles without concerns about their movements or usage patterns being tracked and stored, promoting a more privacy-conscious sharing economy.
-Revoking Anonymity: If a user handles the shared cycle roughly, damages it, or breaks rules such as not returning to the designated place or delaying the return, the Opener can revoke the user's anonymity using their secret key to identify the individual responsible.
+
+**Secure Access via Wallet App**
+
+Users can unlock and access cycles through the wallet app, selecting relevant credentials to authenticate themselves without revealing their full identity. This process ensures only authorized users can access the cycles.
+
+**Selective Credential Disclosure**
+
+The app's use of BBS+ signatures enables users to prove they meet the usage criteria (like age or membership status) without sharing any additional personal information.
+
+**Decentralized Verification with DWN**
+
+The use of DWN ensures that all user verifications are securely managed and logged without centralizing data, enhancing privacy and reducing the risk of data breaches.
+
+**Enhanced User Privacy**
+
+Users can confidently use sharing cycles without concerns about their movements or usage patterns being tracked and stored, promoting a more privacy-conscious sharing economy.
+
+**Revoking Anonymity**
+
+If a user handles the shared cycle roughly, damages it, or breaks rules such as not returning to the designated place or delaying the return, the Opener can revoke the user's anonymity using their secret key to identify the individual responsible.
 
 ### Taxi Dispatch (OntID)
 The application can be adapted to facilitate anonymous taxi dispatch services, ensuring passenger privacy while maintaining necessary security and authentication protocols.
-Anonymous Ride Booking: Passengers can book rides through the app, proving their validity as customers without revealing their identities to the taxi service. This process uses Zero-Knowledge Proofs to confirm payment or account status.
-Secure Driver Authentication: Drivers can also authenticate themselves using the system, ensuring passengers that they are using a verified service without the drivers having to disclose personal information.
-Incident Tracking and Resolution: In cases of disputes or incidents, the Opener role can be employed to discreetly access specific encrypted travel logs and the anonymous identity information of both the passenger and the driver. This targeted approach ensures that only relevant data is revealed, thus maintaining the privacy of all users.
-Tech Stuff and reference
-Technical Specifications
-Frontend Development
 
-## Technology Stack
+**Anonymous Ride Booking**
+
+Passengers can book rides through the app, proving their validity as customers without revealing their identities to the taxi service. This process uses Zero-Knowledge Proofs to confirm payment or account status.
+
+**Secure Driver Authentication**
+
+Drivers can also authenticate themselves using the system, ensuring passengers that they are using a verified service without the drivers having to disclose personal information.
+
+**Incident Tracking and Resolution**
+
+In cases of disputes or incidents, the Opener role can be employed to discreetly access specific encrypted travel logs and the anonymous identity information of both the passenger and the driver. This targeted approach ensures that only relevant data is revealed, thus maintaining the privacy of all users.
+
+## Tech Stuff and reference
+
+### Frontend Development
+
+echnology Stack
 Our wallet application, serving as the user interface for lab members, is developed using React and TypeScript. This combination provides a robust and scalable frontend, ensuring a responsive and user-friendly experience.
+
 User Interface: The app facilitates easy selection of verifiable credentials (VCs) and QR code scanning, designed with intuitive navigation and clear visual cues to enhance user interaction.
 
 ### Backend Development
 
 Selective Disclosure with BBS+ Signature: For backend processing, we've implemented the BBS+ signature scheme. This advanced cryptographic protocol enables the selective disclosure of VC attributes, allowing lab members to share only the necessary information while keeping other personal details private.
+
 Proof System Using Elliptic Curve ElGamal: To generate Zero-Knowledge Proofs (ZKP), we utilize the Elliptic Curve ElGamal encryption scheme. This system enhances the security of our proofs, ensuring that verification can occur without revealing the underlying data.
 
 ### Decentralized Web Nodes (DWN) Integration
 
 VC Transmission via DWN: Our system employs DWNs to securely transmit the prover's VC to the verifier. This decentralized approach not only enhances security but also ensures efficient and reliable data transfer.
+
 Synchronization with Local Verifier Nodes: Upon reaching the verifier's node, the VC is synchronized with the local verifier’s node. This process ensures that the verifier has the most up-to-date and accurate data for verification.
 
 ### Hardware Integration and Access Control
