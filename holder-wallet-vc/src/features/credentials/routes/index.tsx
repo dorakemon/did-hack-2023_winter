@@ -17,7 +17,7 @@ export const Credentials = () => {
 
   const { formatVC } = useVCFormatter();
 
-  const cardTitles = vcListFiltered.map((vc) => formatVC(vc).title);
+  const cardTitles = vcListFiltered.map((vc) => formatVC(vc.vc).title);
 
   const cardClickHandler = useCallback(
     (index: number) => {

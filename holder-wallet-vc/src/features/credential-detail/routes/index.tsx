@@ -31,12 +31,12 @@ export const CredentialDetail = () => {
   }
 
   const keyValueList = (() => {
-    const vc = formatVC(selectedVc);
+    const vc = formatVC(selectedVc.vc);
     return vc.keyValueList;
   })();
 
   const verifyButtonHandler = async () => {
-    const result = await verifyVC(selectedVc);
+    const result = await verifyVC(selectedVc.vc, selectedVc.uid);
     if (!result) {
       setVerifyStatus('invalid');
       return;
@@ -47,13 +47,13 @@ export const CredentialDetail = () => {
   return (
     <Grid gap={3} direction="column" container>
       <CredentialDetailHeader
-        title={formatVC(selectedVc).title}
+        title={formatVC(selectedVc.vc).title}
         verifyStatus={verifyStatus === 'yet' ? undefined : verifyStatus}
       />
       <VerifyAlert status={verifyStatus} onClick={verifyButtonHandler} />
       <Grid gap={1} direction="column" container>
         <CredentialData keyValueList={keyValueList} />
-        <JsonRawData data={selectedVc} />
+        <JsonRawData data={selectedVc.vc} />
       </Grid>
       <Box sx={{ marginTop: 'auto' }}>
         <PresentButton onClick={() => navigate('/present')} />

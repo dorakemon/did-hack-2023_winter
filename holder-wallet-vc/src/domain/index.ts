@@ -23,3 +23,8 @@ export type VCType = {
 };
 
 export type KeyValueList = { key: string; value: string }[];
+
+export type EllipticElGamalKeyPair = {
+  publicKey: string;
+  secretKey: string;
+};

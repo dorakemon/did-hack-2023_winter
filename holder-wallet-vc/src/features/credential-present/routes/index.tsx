@@ -3,6 +3,7 @@ import { useAtomValue } from 'jotai';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { OpenerKey } from '@/fixtures';
 import { useVCFormatter, useVCLogics } from '@/hooks/vc';
 import { exampleDIDDocs, exampleKeyPairs } from '@/hooks/vc/materials';
 import { useSubmitDing } from '@/hooks/web5';
@@ -51,7 +52,7 @@ export const CredentialPresent = () => {
   }, []);
 
   const removeAttributesFromVc = useCallback(() => {
-    const revealDoc = JSON.parse(JSON.stringify(selectedVc));
+    const revealDoc = JSON.parse(JSON.stringify(selectedVc?.vc));
     const keys = Object.keys(revealDoc.credentialSubject);
     keys.forEach((key) => {
       if (!['type', ...revealAttributes].includes(key)) {
@@ -67,9 +68,11 @@ export const CredentialPresent = () => {
     try {
       console.log(revealAttributes);
       const vp = await generateVP(
-        selectedVc,
+        selectedVc?.vc,
         removeAttributesFromVc(),
         challenge,
+        selectedVc?.uid ?? '',
+        OpenerKey.publicKey,
       );
       const result = await verifyVp(vp, challenge);
       console.log(vp);
@@ -103,7 +106,7 @@ export const CredentialPresent = () => {
   }
 
   const keyValueList = (() => {
-    const vc = formatVC(selectedVc);
+    const vc = formatVC(selectedVc.vc);
     return vc.keyValueList;
   })();
 
