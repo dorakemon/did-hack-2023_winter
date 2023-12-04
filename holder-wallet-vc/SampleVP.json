@@ -1,0 +1,36 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/ns/data-integrity/v1",
+    "https://schema.org/",
+    "https://zkp-ld.org/context.jsonld"
+  ],
+  "type": "VerifiablePresentation",
+  "verifiableCredential": {
+    "id": "http://example.org/credentials/person/2",
+    "type": "VerifiableCredential",
+    "credentialSubject": {
+      "type": "StudentCard",
+      "http://example.org/laboratory": "Another Lab"
+    },
+    "proof": {
+      "type": "DataIntegrityProof",
+      "created": "2023-12-01T03:43:41.042Z",
+      "cryptosuite": "bbs-termwise-bound-signature-2023",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "did:example:issuer2#bls12_381-g2-pub001"
+    },
+    "expirationDate": "2026-01-01T00:00:00Z",
+    "issuanceDate": "2023-01-01T00:00:00Z",
+    "issuer": "did:example:issuer2"
+  },
+  "proof": {
+    "type": "DataIntegrityProof",
+    "created": "2023-12-04T01:53:18.015Z",
+    "https://sako-lab.jp/schemas#encrypted_uid": "uqoCQRGQEHkZPBrPJer-XoC4Vqw0HnGGgMfyGlGECT7OsEPc_YuC-OUjprAK_m2Cwp4TuEJqcD-N_cw1Eiy09IyVcWpezlf15p9uKQAnYEnrZetCXQbQs4GlZOb-ipo9D",
+    "challenge": "9UZOu7PD7f9uY6F_lcdQTM38sDn6Y_",
+    "cryptosuite": "bbs-termwise-proof-2023",
+    "proofPurpose": "authentication",
+    "proofValue": "uomFhWQUkAwAAAAAAAAAAjsx7hyMOfF2prrjUveUB3bnx1KmvzVSeeNiegvzpm_kX30m4C7wFgpj8IxK1_zGEho28DZsNlwZl-6JJX0VwZl6_fsU3DSq4xRJN9oEOfnuc_LnNATiJVxxefjvILxNLl1PAXw7jmWF53WpelgyYc-4Lh8fd6oNPgdgVeLxK6t_UkubSGSPC_CIx5kcHadIliwYsSB73s5YlpKApdr6-z5nhQ0U0qu9PqzAL1n5F48NU3gC7DIYprxely_tm9IWPAgAAAAAAAACLMajWCn72huJI4myZpUur6bSN2D7c-oV3Z_6z5qpeHYRALarLjzozqlk3X1Haf1Vtph5hmsAsDNSESnjVNlIQhu96lf7fsElFOkLjwZl6zh2-uxMSj8q9YQP_K8gPTQaB3dTXyT_HeHbEYK5mM9WWFwAAAAAAAAArTE38M2d7CPtZeHM2Hnwe_DcHjfHBAeRn5yjdqx50BElFXkhj3sdsTY1GtIEPvP6Dkn2chAWp9P4PvJGsTINggZHlJDSY-7QVWe1bpNDu9SqbO_Bb0EraCf0W4MN61mUUFBkNUkuZ8jErmuiEOCrnjolNw-PbUnanDoe4mZNGMwCjfhEDZ7Mjr5Mk-l5oKO-avz4A7FP92cUBHcYRrZQcKv25qIFPOIBomkryIVH3ZIgEs-l_tac2INC2cw_GEwfCYhtdo4SDuzedNuBT1qpyMB-xGYMnO2fv7mO1loWNOhQUGQ1SS5nyMSua6IQ4KueOiU3D49tSdqcOh7iZk0YzWkLjvnbnj-iTbABucUGJn_R9YhkLgMoWUvJaI_R4Z1_S0gOdJc_bOKVeaVN5x1x1uB6K3dkGjxkhGYl9rM2va6HKMwCsgwQLyyoFO_fN4m2KFGNFpJhOl-5_A8FTKFFvzoISBp7iivGjq8qJbKTlM0-dpjBfqxyRyCdtdvCiEzmy4FUiegBnSOB72dkJrNBzrwYjcA6dgsGMwA6hDrCDWJXu1CmzjYrD2zopaILxhiXIlPNgh-wUJk0QTMEA7uJNbtvxvJBZBHemNGgjb-7TsRRmVlmDHjf55h3VnVX9ETLiKsGFZXk_jf1AiVtUn8JPXhi3k6_7eqWtdopRSwaRKbqgRyam7vlY1VeQZ6-82ZuLBpb6ofGRVy0Mbce2AgkzFBQZDVJLmfIxK5rohDgq546JTcPj21J2pw6HuJmTRjMwgjI9q8EmUUPpC0pNkACNdXrFxBomiVmGb_gTfuzbFzCCMj2rwSZRQ-kLSk2QAI11esXEGiaJWYZv-BN-7NsXMIIyPavBJlFD6QtKTZAAjXV6xcQaJolZhm_4E37s2xcwgjI9q8EmUUPpC0pNkACNdXrFxBomiVmGb_gTfuzbFzCCMj2rwSZRQ-kLSk2QAI11esXEGiaJWYZv-BN-7NsXA6wNcMBVNXAacWpc6Fz9C-4DttQ2Z1YS6pjKZ4lvImaZdpva8jEwvll7z_7OLBkQigEAAAAAAAAAoFUmBt3L6fJwIld2DzpyuHyDnYHeWN1efnuKBria_E8Do3I7SI-YZanEpBf2JJndR2I3xGIhcz1WXoyFGD-8Fl6u1GToH2D6Odc-MzWXcaH-AgAAAAAAAABRpYAeVlDV2yYJww3p1sARTMGFNYmUknBY88u54wOURhK9XeYTkheYwmLdwbp-KTzNVty_gSdUDKaNxdXiIUgDAR4AAAAAAAAAOVVaT3U3UEQ3Zjl1WTZGX2xjZFFUTTM4c0RuNllfAABhYoGkYWGHAAECAwQGCmFiC2FjhQABAgMEYWQF"
+  }
+}

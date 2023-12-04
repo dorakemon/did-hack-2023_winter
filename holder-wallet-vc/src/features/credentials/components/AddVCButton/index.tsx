@@ -4,7 +4,11 @@ import { Fab } from '@mui/material';
 
 import { ColorTheme } from '@/theme/color';
 
-export const AddVCButton = () => {
+type AddVCButtonProps = {
+  onClick: () => void;
+};
+
+export const AddVCButton: React.FC<AddVCButtonProps> = ({ onClick }) => {
   return (
     <Fab
       variant="extended"
@@ -18,6 +22,7 @@ export const AddVCButton = () => {
         borderRadius: '12px',
         height: '50px',
       }}
+      onClick={onClick}
     >
       <Grid
         display="flex"

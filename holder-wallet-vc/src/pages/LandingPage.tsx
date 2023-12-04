@@ -32,6 +32,7 @@ export const LandingPage = () => {
             ※ Only for demo
           </Typography>
           <Link href="/info">Details for demo</Link>
+          <Link href="/opener">Opener Demo</Link>
         </Grid>
         <Box
           sx={{
