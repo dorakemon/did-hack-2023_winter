@@ -126,26 +126,49 @@ In cases of disputes or incidents, the Opener role can be employed to discreetly
 
 ### Frontend Development
 
-echnology Stack
-Our wallet application, serving as the user interface for lab members, is developed using React and TypeScript. This combination provides a robust and scalable frontend, ensuring a responsive and user-friendly experience.
+**Wallet Application**
 
-User Interface: The app facilitates easy selection of verifiable credentials (VCs) and QR code scanning, designed with intuitive navigation and clear visual cues to enhance user interaction.
+It is serving as the user interface for lab members.
+
+- ReactJS
+- Web5.js
+- @dorakemon/jsonld-proofs
+
+**Verifier Application** 
+
+This application is deployed on Raspberry Pi 4
+
+- electron
+- ReactJS
+- Web5.js
+- @dorakemon/jsonld-proofs
+
+
 
 ### Backend Development
 
-Selective Disclosure with BBS+ Signature: For backend processing, we've implemented the BBS+ signature scheme. This advanced cryptographic protocol enables the selective disclosure of VC attributes, allowing lab members to share only the necessary information while keeping other personal details private.
+**Selective Disclosure with BBS+ Signature**
 
-Proof System Using Elliptic Curve ElGamal: To generate Zero-Knowledge Proofs (ZKP), we utilize the Elliptic Curve ElGamal encryption scheme. This system enhances the security of our proofs, ensuring that verification can occur without revealing the underlying data.
+For backend processing, we've implemented the BBS+ signature scheme. This advanced cryptographic protocol enables the selective disclosure of VC attributes, allowing lab members to share only the necessary information while keeping other personal details private.
+
+**Proof System Using Elliptic Curve ElGamal**
+
+To generate Zero-Knowledge Proofs (ZKP) for verifiable encryption of `uid`, we utilize the Elliptic Curve ElGamal encryption scheme on BLD12-381 curve.
 
 ### Decentralized Web Nodes (DWN) Integration
 
-VC Transmission via DWN: Our system employs DWNs to securely transmit the prover's VC to the verifier. This decentralized approach not only enhances security but also ensures efficient and reliable data transfer.
+**VC Transmission via DWN**
 
-Synchronization with Local Verifier Nodes: Upon reaching the verifier's node, the VC is synchronized with the local verifier’s node. This process ensures that the verifier has the most up-to-date and accurate data for verification.
+Our system employs DWNs to securely transmit the prover's VC to the verifier. This decentralized approach not only enhances security but also ensures efficient and reliable data transfer.
+
+**Synchronization with Local Verifier Nodes**
+
+Upon reaching the verifier's node, the VC is synchronized with the local verifier’s node. This process ensures that the verifier has the most up-to-date and accurate data for verification.
 
 ### Hardware Integration and Access Control
 
 Raspberry Pi as Verifier: In our setup, we use Raspberry Pi as the verifier hardware. It's responsible for receiving and verifying the VC presented by the lab member.
+
 Python Script for Door Activation: Once the VC is verified, a Python script is executed on the Raspberry Pi, which activates the lab’s door unlocking system. This script is a crucial component, as it translates successful digital verification into physical access control, opening the door for authorized individuals.
 
 ## Tech Resources we created
